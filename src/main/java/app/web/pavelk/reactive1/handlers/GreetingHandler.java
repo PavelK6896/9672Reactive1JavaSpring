@@ -4,7 +4,6 @@ import app.web.pavelk.reactive1.domens.Message;
 import org.springframework.http.MediaType;
 import org.springframework.http.ReactiveHttpOutputMessage;
 import org.springframework.stereotype.Component;
-
 import org.springframework.web.reactive.function.BodyInserter;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -29,12 +28,12 @@ public class GreetingHandler {
                 .body(body);
     }
 
-    public Mono<ServerResponse> main(ServerRequest serverRequest){
+    public Mono<ServerResponse> main(ServerRequest serverRequest) {
 
-            String user = serverRequest.queryParam("user").orElse("no body");
-            return ServerResponse
-                    .ok()// код 200
-                    .render("index", Map.of("user", user));
+        String user = serverRequest.queryParam("user").orElse("no body");
+        return ServerResponse
+                .ok()// код 200
+                .render("index", Map.of("user", user));
 
     }
 
@@ -50,14 +49,11 @@ public class GreetingHandler {
                 .map(Message::new);
 
 
-
-
         return ServerResponse
                 .ok()// код 200
                 .contentType(MediaType.APPLICATION_JSON)// текст
                 .body(data, Message.class);
     }
-
 
 
 }

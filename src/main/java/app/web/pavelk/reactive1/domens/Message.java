@@ -1,6 +1,14 @@
 package app.web.pavelk.reactive1.domens;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+
+@Data
+@NoArgsConstructor
 public class Message {
+    @Id
+    private Long id;
     private String data;
 
 
@@ -8,11 +16,4 @@ public class Message {
         this.data = data;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
 }
