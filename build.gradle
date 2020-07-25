@@ -20,6 +20,8 @@ repositories {
 
 dependencies {
 
+    //security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     //web
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     //html

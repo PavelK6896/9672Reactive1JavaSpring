@@ -10,5 +10,25 @@
 <body>
 templates <br/>
 Hello {{user}}.
+
+
+<form
+        onsubmit="
+    let payload = {
+        method: 'post',
+        headers: {
+            'Content-type': 'application/x-www-form-urlencoded'
+        },
+        body: `username=${this.username.value}&password=${this.password.value}`
+    };
+    fetch('/login', payload).then(resp => resp.text()).then(text => console.log(text));
+    return false;
+"
+>
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <input type="submit" value="Sign in">
+</form>
+
 </body>
 </html>
