@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/c")
+@RequestMapping("/controller")
 public class MainController {
 
     private final MessageService messageService;
@@ -18,7 +18,7 @@ public class MainController {
         this.messageService = messageService;
     }
 
-    @GetMapping("/j")
+    @GetMapping("/1")
     public Flux<Message> cj(@RequestParam(required = false, defaultValue = "0") Long start,
                             @RequestParam(required = false, defaultValue = "3") Long count) {
         return Flux.just("hello re", " two post", "three post", "44", "55")

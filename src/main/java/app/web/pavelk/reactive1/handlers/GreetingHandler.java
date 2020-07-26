@@ -22,6 +22,9 @@ public class GreetingHandler {
     public Mono<ServerResponse> hello(ServerRequest request) {
         //генерация контента
         BodyInserter<String, ReactiveHttpOutputMessage> body = BodyInserters.fromValue("Hello, Spring!");
+
+        System.out.println("hello " + request);
+
         return ServerResponse
                 .ok()// код 200
                 .contentType(MediaType.TEXT_PLAIN)// текст
@@ -47,7 +50,6 @@ public class GreetingHandler {
                 .skip(start)//скипаем
                 .take(count)
                 .map(Message::new);
-
 
         return ServerResponse
                 .ok()// код 200
